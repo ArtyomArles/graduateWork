@@ -1,41 +1,38 @@
-import {UserOutlined, VideoCameraOutlined, UploadOutlined,} from '@ant-design/icons'
-import {Layout, Menu} from 'antd'
-import React, {useState} from 'react'
+import React from 'react'
+import {Link} from 'react-router-dom'
+import {UserOutlined, DollarOutlined, BarChartOutlined} from '@ant-design/icons'
+import {Menu, Layout} from 'antd'
 
-const {Sider} = Layout
+const {Header} = Layout
 
 export function MainMenu() {
-
-  const [collapsed, setCollapsed] = useState(false)
 
   const items = [
     {
       key: '1',
-      icon: <UserOutlined />,
+      icon:<Link to='account'><UserOutlined /></Link >,
       label: 'Личный кабинет',
     },
     {
       key: '2',
-      icon: <VideoCameraOutlined />,
-      label: 'nav 2',
+      icon: <Link to='budget'><DollarOutlined /></Link>,
+      label: 'Бюджет',
     },
     {
       key: '3',
-      icon: <UploadOutlined />,
-      label: 'Отчеты',
-    },
+      icon: <Link to='monitoring'><BarChartOutlined /></Link>,
+      label: 'Мониторинг',
+    }
   ]
 
   return (
-    <Layout>
-      <Sider
-        collapsible
-        theme='light'
-        collapsed={collapsed}
-        onCollapse={() => setCollapsed((collapsed) => !collapsed)}
-      >
-        <Menu items={items} />
-      </Sider>
-    </Layout>
+    <Header>
+      <Menu
+        items={items} 
+        theme='dark'
+        mode='horizontal'
+        style={{justifyContent:'center'}}
+      />
+    </Header>
   )
 }

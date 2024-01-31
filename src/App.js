@@ -1,13 +1,14 @@
 import React from 'react'
-import {MainContent, MainMenu} from './components'
-import {Space} from 'antd'
+import {MainContent, MainMenu, MainFooter} from './components'
+import {Layout} from 'antd'
 
 export default function App() {
 
   return (
-    <Space align='start'>
+    <Layout style={{minHeight: '100vh'}}>
       <MainMenu />
       <MainContent />
-    </Space>
+      <MainFooter />
+    </Layout>
   )
 }
