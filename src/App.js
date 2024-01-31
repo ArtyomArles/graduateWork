@@ -1,21 +1,13 @@
 import React from 'react'
-import {Routes, Route} from 'react-router-dom'
+import {MainContent, MainMenu} from './components'
+import {Space} from 'antd'
 
 export default function App() {
 
   return (
-    <div className='main'>
-      <aside>
-        <></>
-      </aside>
-      <main>
-        <Routes>
-          <Route
-            path=''
-            element={<div></div>}>
-          </Route>
-        </Routes>
-      </main>
-    </div>
+    <Space align='start'>
+      <MainMenu />
+      <MainContent />
+    </Space>
   )
 }
