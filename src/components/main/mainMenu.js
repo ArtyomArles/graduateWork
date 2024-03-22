@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import {UserOutlined, DollarOutlined, BarChartOutlined} from '@ant-design/icons'
+import {UserOutlined, DollarOutlined, BarChartOutlined, ContainerOutlined} from '@ant-design/icons'
 import {Menu, Layout} from 'antd'
 
 const {Header} = Layout
@@ -9,24 +9,29 @@ export function MainMenu() {
 
   const items = [
     {
-      key: '1',
+      key: 'content',
+      icon:<Link to=' '><ContainerOutlined /></Link >,
+      label: 'Контент',
+    },
+    {
+      key: 'account',
       icon:<Link to='account'><UserOutlined /></Link >,
       label: 'Личный кабинет',
     },
     {
-      key: '2',
+      key: 'budget',
       icon: <Link to='budget'><DollarOutlined /></Link>,
       label: 'Бюджет',
     },
     {
-      key: '3',
+      key: 'monitoring',
       icon: <Link to='monitoring'><BarChartOutlined /></Link>,
       label: 'Мониторинг',
     }
   ]
 
   return (
-    <Header>
+    <Header style={{position: 'sticky'}}>
       <Menu
         items={items} 
         theme='dark'
