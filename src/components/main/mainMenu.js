@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import {UserOutlined, DollarOutlined, BarChartOutlined, ContainerOutlined} from '@ant-design/icons'
 import {Menu, Layout} from 'antd'
+import {TransactionType} from 'src/models/transactionType'
 
 const {Header} = Layout
 
@@ -20,13 +21,20 @@ export function MainMenu() {
     },
     {
       key: 'budget',
-      icon: <Link to='budget'><DollarOutlined /></Link>,
+      icon: <DollarOutlined />,
       label: 'Бюджет',
+      children: [
+        {
+          key: 'transactionTypes',
+          icon: <Link to='transactionTypes'>{React.createElement(TransactionType.icon)}</Link>,
+          label: TransactionType.indexCaption
+        }
+      ]
     },
     {
       key: 'monitoring',
       icon: <Link to='monitoring'><BarChartOutlined /></Link>,
-      label: 'Мониторинг',
+      label: 'Мониторинг'
     }
   ]
 

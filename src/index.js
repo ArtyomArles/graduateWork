@@ -5,7 +5,7 @@ import {BrowserRouter} from 'react-router-dom'
 import {PersistGate} from 'redux-persist/integration/react'
 import App from './App'
 import './index.css'
-import store, {persistor} from './store'
+import store, {persistor} from './store/store'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(

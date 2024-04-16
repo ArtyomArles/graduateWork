@@ -1,6 +1,7 @@
 import React from 'react'
 import {Route, Routes} from 'react-router-dom'
 import {Layout, theme} from 'antd'
+import {TransactionType} from 'src/models/transactionType'
 
 const {Content} = Layout
 
@@ -29,8 +30,8 @@ export function MainContent() {
           element={<div>account</div>}>
         </Route>
         <Route
-          path='/budget'
-          element={<div>budget</div>}>
+          path='/transactionTypes'
+          element={React.createElement(TransactionType.indexComponent)}>
         </Route>
         <Route
           path='/monitoring'
