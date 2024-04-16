@@ -7,6 +7,7 @@ const {Title} = Typography
 
 export default function TransactionTypeIndex() {
 
+  const [data, setData] = useState([])
   const columns = [
     {
       title: 'id',
@@ -16,11 +17,10 @@ export default function TransactionTypeIndex() {
     {
       title: 'Название',
       dataIndex: 'title',
-      key: 'title'
+      key: 'title',
+      // render: (title, record) => <Link to={`${record.id}`}>{title}</Link> //TODO реализовать через модалку и Typography.Link
     }
   ]
-
-  const [data, setData] = useState([])
 
   useEffect(() => {
     async function fetchData() {
