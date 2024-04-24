@@ -11,4 +11,8 @@ export class TransactionType extends ApplicationModel {
   indexCaption = 'Типы транзакции'
   indexComponent = TransactionTypeIndex
   formComponent = TransactionTypeForm
+  initialState = {
+    id: null, 
+    title: ''
+  }
 }

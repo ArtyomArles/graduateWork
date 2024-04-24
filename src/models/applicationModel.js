@@ -8,11 +8,22 @@ export default class ApplicationModel {
   indexComponent = null
   formComponent = null
   entity = null
+  initialState = null
 
   constructor (entity) {
     if (entity) {
       this.entity = entity
     }
+  }
+
+  async edit() {
+    const result = await Api.post(`${this.route}/edit`, this.entity)
+    return result
+  }
+
+  async save() {
+    const result = await Api.post(`${this.route}/create`, this.entity)
+    return result
   }
 
   static async search(params, prefix) {
@@ -51,5 +62,9 @@ export default class ApplicationModel {
 
   static get indexCaption() {
     return new this().indexCaption
+  }
+
+  static get initialState() {
+    return new this().initialState
   }
 }

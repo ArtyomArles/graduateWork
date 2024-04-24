@@ -13,6 +13,7 @@ export default function TransactionTypeForm({modalForm, setModalForm}) {
           <Input
             width={200}
             value={modalForm.title}
+            placeholder='Введите название'
             onChange={(e) => {
               setModalForm(prevForm => ({...prevForm, title: e.target.value}))
             }}
