@@ -5,8 +5,13 @@ const endpoint = 'http://localhost:8080'
 class Api {
 
   async handleResponse (request) {
-    const response = await request
-    return await response.json()
+    try {
+      const response = await request
+      if (response.ok)
+        return await response.json()
+    } catch {
+      return null
+    }
   }
 
   get (path, params, prefix = '') {

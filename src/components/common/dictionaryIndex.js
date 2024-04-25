@@ -9,6 +9,8 @@ export default function DictionaryIndex({model: Model, table: Table}) {
 
   const [data, setData] = useState([])
   const [modalForm, setModalForm] = useState(null)
+  const [addedModalForm, setAddedModalForm] = useState(null)
+  const [addedModel, setAddedModel] = useState(null)
   const [loading, setLoading] = useState(false)
 
   const getItems = useCallback(async () => {
@@ -19,8 +21,8 @@ export default function DictionaryIndex({model: Model, table: Table}) {
   }, [Model])
 
   useEffect(() => {
-    if (!modalForm) void getItems()
-  }, [getItems, modalForm])
+    if (!modalForm && !addedModalForm) void getItems()
+  }, [addedModalForm, getItems, modalForm])
 
   return (
     <>
@@ -40,6 +42,8 @@ export default function DictionaryIndex({model: Model, table: Table}) {
           <Table
             data={data}
             setModalForm={setModalForm}
+            setAddedModalForm={setAddedModalForm}
+            setAddedModel={setAddedModel}
             pagination={{pageSizeOptions: [5, 10, 20, 50, 100], showSizeChanger: true}} 
           />
         </>}
@@ -47,6 +51,11 @@ export default function DictionaryIndex({model: Model, table: Table}) {
         model={Model}
         modalForm={modalForm}
         setModalForm={setModalForm}
+      />
+      <DictionaryModal 
+        model={addedModel?.model}
+        modalForm={addedModalForm}
+        setModalForm={setAddedModalForm}
       />
     </>
   )

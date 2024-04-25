@@ -6,17 +6,18 @@ export default function BudgetCategoryTable({data, setModalForm, ...props}) {
 
   const columns = [
     {
-      title: 'id',
+      title: '№',
       dataIndex: 'id',
       key: 'id',
-      render: (id, record) => <Typography.Link onClick={() => {
-        setModalForm(record)
-      }}>{id}</Typography.Link>
+      align: 'center'
     },
     {
       title: 'Название',
       dataIndex: 'title',
-      key: 'title'
+      key: 'title',
+      render: (title, record) => <Typography.Link onClick={() => {
+        setModalForm(record)
+      }}>{title}</Typography.Link>
     },
     {
       title: 'Описание',

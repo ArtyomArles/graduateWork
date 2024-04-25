@@ -1,4 +1,5 @@
 import Api from '../api'
+import {message} from 'antd'
 
 export default class ApplicationModel {
   route = ''
@@ -18,22 +19,38 @@ export default class ApplicationModel {
 
   async edit() {
     const result = await Api.post(`${this.route}/edit`, this.entity)
-    return result
+    if (result) {
+      message.success('Запись успешно изменена', 2)
+      return result
+    }
+    message.error('Что-то пошло не так', 2)
   }
 
   async save() {
     const result = await Api.post(`${this.route}/create`, this.entity)
-    return result
+    if (result) {
+      message.success('Запись успешно сохранена', 2)
+      return result
+    }
+    message.error('Что-то пошло не так', 2)
   }
 
   async delete() {
     const result = await Api.post(`${this.route}/delete/${this.entity.id}`)
-    return result
+    if (result) {
+      message.success('Запись успешно удалена', 2)
+      return result
+    }
+    message.error('Что-то пошло не так', 2)
   }
 
   static async search(params, prefix) {
     const result = await Api.get(`${this.route}/search`, params, prefix)
-    return result
+    if (result) {
+      return result
+    } 
+    message.error('Что-то пошло не так', 2)
+    return []
   }
 
   static async find(id) {
