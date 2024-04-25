@@ -15,7 +15,7 @@ class Api {
   }
 
   post (path, body) {
-    path = `/api/${path}`
+    path = `/${path}`
     return this.handleResponse(
       fetch(`${endpoint}${path}`, {
         method: 'POST',

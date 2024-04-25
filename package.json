@@ -10,6 +10,7 @@
     "antd": "^5.13.3",
     "axios": "^1.4.0",
     "classnames": "^2.3.2",
+    "cors": "^2.8.5",
     "lint": "^0.8.19",
     "lodash": "^4.17.21",
     "lodash.debounce": "^4.0.8",

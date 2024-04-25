@@ -7,12 +7,13 @@ import DeleteButton from '../buttons/deleteButton'
 
 const {Title} = Typography
 
-export default function DictionaryIndex({model: Model, table: Table, form: Form}) {
+export default function DictionaryIndex({model: Model, table: Table}) {
 
   const [data, setData] = useState([])
   const [modalForm, setModalForm] = useState(null)
   const [loading, setLoading] = useState(false)
   const isEdit = !!modalForm?.id
+  const Form = Model.formComponent
 
   const onReset = () => {
     setModalForm(null)
@@ -21,11 +22,19 @@ export default function DictionaryIndex({model: Model, table: Table, form: Form}
   const onEdit = async () => {
     const item = new Model(modalForm)
     await item.edit()
+    onReset()
   }
 
   const onSave = async () => {
     const item = new Model(modalForm)
     await item.save()
+    onReset()
+  }
+
+  const onDelete = async () => {
+    const item = new Model(modalForm)
+    await item.delete()
+    onReset()
   }
 
   const getItems = useCallback(async () => {
@@ -68,7 +77,7 @@ export default function DictionaryIndex({model: Model, table: Table, form: Form}
         footer={[
           <Space key='footer'>
             <CloseButton onClick={onReset}/>
-            {isEdit && <DeleteButton />}
+            {isEdit && <DeleteButton onClick={onDelete}/>}
             <SaveButton onClick={isEdit ? onEdit : onSave}/>
           </Space>
         ]}

@@ -26,6 +26,11 @@ export default class ApplicationModel {
     return result
   }
 
+  async delete() {
+    const result = await Api.post(`${this.route}/delete/${this.entity.id}`)
+    return result
+  }
+
   static async search(params, prefix) {
     const result = await Api.get(`${this.route}/search`, params, prefix)
     return result
