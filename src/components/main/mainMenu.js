@@ -1,19 +1,16 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import {UserOutlined, DollarOutlined, BarChartOutlined, ContainerOutlined} from '@ant-design/icons'
+import {UserOutlined, DollarOutlined, BarChartOutlined} from '@ant-design/icons'
 import {Menu, Layout} from 'antd'
 import {TransactionType} from 'src/models/transactionType'
+import {BudgetCategory} from 'src/models/budgetCategory'
+import {Transaction} from 'src/models/transaction'
 
 const {Header} = Layout
 
 export function MainMenu() {
 
   const items = [
-    {
-      key: 'content',
-      icon:<Link to=' '><ContainerOutlined /></Link >,
-      label: 'Контент',
-    },
     {
       key: 'account',
       icon:<Link to='account'><UserOutlined /></Link >,
@@ -28,6 +25,16 @@ export function MainMenu() {
           key: 'transactionTypes',
           icon: <Link to='transactionTypes'>{React.createElement(TransactionType.icon)}</Link>,
           label: TransactionType.indexCaption
+        },
+        {
+          key: 'budgetCategories',
+          icon: <Link to='budgetCategories'>{React.createElement(BudgetCategory.icon)}</Link>,
+          label: BudgetCategory.indexCaption
+        },
+        {
+          key: 'transactions',
+          icon: <Link to='transactions'>{React.createElement(Transaction.icon)}</Link>,
+          label: Transaction.indexCaption
         }
       ]
     },

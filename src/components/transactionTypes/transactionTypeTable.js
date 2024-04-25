@@ -2,7 +2,7 @@ import React from 'react'
 import {Table, Typography} from 'antd'
 import {getDataWithKeys} from 'src/helpers/getDataWithKeys'
 
-export default function TransactionTypeTable({data, setModalForm}) {
+export default function TransactionTypeTable({data, setModalForm, ...props}) {
 
   const columns = [
     {
@@ -24,6 +24,7 @@ export default function TransactionTypeTable({data, setModalForm}) {
     <Table
       columns={columns}
       dataSource={getDataWithKeys(data)}
+      {...props}
     />
   )
 }
