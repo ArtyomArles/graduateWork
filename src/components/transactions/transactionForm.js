@@ -8,7 +8,6 @@ import {getConvertedDate} from 'src/helpers/getConvertedDate'
 
 export default function TransactionForm({modalForm, setModalForm}) {
 
-  console.log(modalForm)
   return (
     <Form layout='vertical'>
       <Row gutter={16}>
