@@ -7,6 +7,7 @@ import {BudgetCategory} from 'src/models/budgetCategory'
 import {Transaction} from 'src/models/transaction'
 import {User} from 'src/models/user'
 import {Currency} from 'src/models/currency'
+import {Budget} from 'src/models/budget'
 
 const {Header} = Layout
 
@@ -42,6 +43,11 @@ export function MainMenu() {
           key: 'transactions',
           icon: <Link to='transactions'>{React.createElement(Transaction.icon)}</Link>,
           label: Transaction.indexCaption
+        },
+        {
+          key: 'budgets',
+          icon: <Link to='budgets'>{React.createElement(Budget.icon)}</Link>,
+          label: Budget.indexCaption
         }
       ]
     },

@@ -2,6 +2,7 @@ import React from 'react'
 import {Table, Typography} from 'antd'
 import {getDataWithKeys} from 'src/helpers/getDataWithKeys'
 import {ICONS, ICON_NOT_FOUND} from 'src/components/common/icons'
+import {getFormattedNumberValue} from 'src/helpers/getFormattedNumberValue'
 
 export default function CurrencyTable({data, setModalForm, ...props}) {
 
@@ -23,7 +24,8 @@ export default function CurrencyTable({data, setModalForm, ...props}) {
     {
       title: 'Курс валюты',
       dataIndex: 'currencyRate',
-      key: 'currencyRate'
+      key: 'currencyRate',
+      render: (currencyRate) => getFormattedNumberValue(currencyRate)
     },
     {
       title: 'Страна',

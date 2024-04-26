@@ -6,6 +6,8 @@ import {BudgetCategory} from 'src/models/budgetCategory'
 import {TransactionType} from 'src/models/transactionType'
 import {ICONS, ICON_NOT_FOUND} from 'src/components/common/icons'
 import {Currency} from 'src/models/currency'
+import {getFormattedNumberValue} from 'src/helpers/getFormattedNumberValue'
+import {Transaction} from 'src/models/transaction'
 
 export default function TransactionTable({data, setModalForm, setAddedModalForm, setAddedModel, ...props}) {
 
@@ -21,7 +23,12 @@ export default function TransactionTable({data, setModalForm, setAddedModalForm,
       dataIndex: 'title',
       key: 'title',
       render: (title, record) => <Typography.Link onClick={() => {
-        setModalForm(record)
+        if (setModalForm)
+          setModalForm(record)
+        else {
+          setAddedModel({model: Transaction})
+          setAddedModalForm(record)
+        }
       }}>{title}</Typography.Link>
     },
     {
@@ -45,7 +52,8 @@ export default function TransactionTable({data, setModalForm, setAddedModalForm,
     {
       title: 'Сумма транзакции',
       dataIndex: 'sum',
-      key: 'sum'
+      key: 'sum',
+      render: (sum) => getFormattedNumberValue(sum)
     },
     {
       title: 'Иконка валюты',

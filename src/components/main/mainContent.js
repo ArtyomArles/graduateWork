@@ -6,6 +6,7 @@ import {BudgetCategory} from 'src/models/budgetCategory'
 import {Transaction} from 'src/models/transaction'
 import {User} from 'src/models/user'
 import {Currency} from 'src/models/currency'
+import {Budget} from 'src/models/budget'
 
 const {Content} = Layout
 
@@ -48,6 +49,10 @@ export function MainContent() {
         <Route
           path='/transactions'
           element={React.createElement(Transaction.indexComponent)}>
+        </Route>
+        <Route
+          path='/budgets'
+          element={React.createElement(Budget.indexComponent)}>
         </Route>
         <Route
           path='/users'
