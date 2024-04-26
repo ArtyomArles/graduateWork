@@ -6,6 +6,7 @@ import {TransactionType} from 'src/models/transactionType'
 import {BudgetCategory} from 'src/models/budgetCategory'
 import {Transaction} from 'src/models/transaction'
 import {User} from 'src/models/user'
+import {Currency} from 'src/models/currency'
 
 const {Header} = Layout
 
@@ -22,6 +23,11 @@ export function MainMenu() {
       icon: <DollarOutlined />,
       label: 'Бюджет',
       children: [
+        {
+          key: 'currencies',
+          icon: <Link to='currencies'>{React.createElement(Currency.icon)}</Link>,
+          label: Currency.indexCaption
+        },
         {
           key: 'transactionTypes',
           icon: <Link to='transactionTypes'>{React.createElement(TransactionType.icon)}</Link>,

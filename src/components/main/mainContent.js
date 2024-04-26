@@ -5,6 +5,7 @@ import {TransactionType} from 'src/models/transactionType'
 import {BudgetCategory} from 'src/models/budgetCategory'
 import {Transaction} from 'src/models/transaction'
 import {User} from 'src/models/user'
+import {Currency} from 'src/models/currency'
 
 const {Content} = Layout
 
@@ -31,6 +32,10 @@ export function MainContent() {
         <Route
           path='/account'
           element={<div>account</div>}>
+        </Route>
+        <Route
+          path='/currencies'
+          element={React.createElement(Currency.indexComponent)}>
         </Route>
         <Route
           path='/transactionTypes'
