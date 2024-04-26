@@ -1,5 +1,5 @@
 import React from 'react'
-import DictionaryIndex from '../common/dictionaryIndex'
+import DictionaryIndex from '../../common/dictionaryIndex'
 import {BudgetCategory} from 'src/models/budgetCategory'
 import BudgetCategoryTable from './budgetCategoryTable'
 

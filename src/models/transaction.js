@@ -1,7 +1,7 @@
-import TransactionIndex from 'src/components/transactions/transactionIndex'
+import TransactionIndex from 'src/components/entity/transactions/transactionIndex'
 import ApplicationModel from './applicationModel'
 import {MoneyCollectOutlined} from '@ant-design/icons'
-import TransactionForm from 'src/components/transactions/transactionForm'
+import TransactionForm from 'src/components/entity/transactions/transactionForm'
 
 
 export class Transaction extends ApplicationModel {

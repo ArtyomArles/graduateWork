@@ -1,9 +1,9 @@
 import React from 'react'
 import {Form, Row, Col, Input} from 'antd'
-import BudgetCategoriesTypesDropdown from '../dropdowns/budgetCategoriesDropdown'
-import TransactionTypesDropdown from '../dropdowns/transactionTypesDropdown'
-import InputNumberStyled from '../common/inputNumberStyled'
-import DatePickerStyled from '../common/datePickerStyled'
+import BudgetCategoriesTypesDropdown from '../../dropdowns/budgetCategoriesDropdown'
+import TransactionTypesDropdown from '../../dropdowns/transactionTypesDropdown'
+import InputNumberStyled from '../../common/inputNumberStyled'
+import DatePickerStyled from '../../common/datePickerStyled'
 import {getConvertedDate} from 'src/helpers/getConvertedDate'
 
 export default function TransactionForm({modalForm, setModalForm}) {
@@ -17,7 +17,6 @@ export default function TransactionForm({modalForm, setModalForm}) {
             required
           >
             <Input
-              width={200}
               value={modalForm.title}
               placeholder='Введите название'
               onChange={(e) => {

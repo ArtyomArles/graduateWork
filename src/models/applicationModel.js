@@ -10,6 +10,8 @@ export default class ApplicationModel {
   formComponent = null
   entity = null
   initialState = null
+  canCreate = true
+  readOnly = false
 
   constructor (entity) {
     if (entity) {
@@ -88,5 +90,13 @@ export default class ApplicationModel {
 
   static get initialState() {
     return new this().initialState
+  }
+
+  static get canCreate() {
+    return new this().canCreate
+  }
+
+  static get readOnly() {
+    return new this().readOnly
   }
 }

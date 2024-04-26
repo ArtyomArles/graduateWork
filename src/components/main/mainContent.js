@@ -4,6 +4,7 @@ import {Layout, theme} from 'antd'
 import {TransactionType} from 'src/models/transactionType'
 import {BudgetCategory} from 'src/models/budgetCategory'
 import {Transaction} from 'src/models/transaction'
+import {User} from 'src/models/user'
 
 const {Content} = Layout
 
@@ -42,6 +43,10 @@ export function MainContent() {
         <Route
           path='/transactions'
           element={React.createElement(Transaction.indexComponent)}>
+        </Route>
+        <Route
+          path='/users'
+          element={React.createElement(User.indexComponent)}>
         </Route>
         <Route
           path='/monitoring'

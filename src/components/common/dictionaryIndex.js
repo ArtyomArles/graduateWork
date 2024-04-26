@@ -32,13 +32,14 @@ export default function DictionaryIndex({model: Model, table: Table}) {
       {loading ? 
         <Skeleton /> :
         <>
-          <AddButton
-            style={{float: 'right'}}
-            title='Создать'
-            onClick={() => {
-              setModalForm(Model.initialState)
-            }}
-          />
+          {Model.canCreate && 
+            <AddButton
+              style={{float: 'right'}}
+              title='Создать'
+              onClick={() => {
+                setModalForm(Model.initialState)
+              }}
+            />}
           <Table
             data={data}
             setModalForm={setModalForm}
@@ -52,7 +53,7 @@ export default function DictionaryIndex({model: Model, table: Table}) {
         modalForm={modalForm}
         setModalForm={setModalForm}
       />
-      <DictionaryModal 
+      <DictionaryModal
         model={addedModel?.model}
         modalForm={addedModalForm}
         setModalForm={setAddedModalForm}

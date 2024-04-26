@@ -1,5 +1,5 @@
 import React from 'react'
-import DictionaryIndex from '../common/dictionaryIndex'
+import DictionaryIndex from '../../common/dictionaryIndex'
 import {Transaction} from 'src/models/transaction'
 import TransactionTable from './transactionTable'
 

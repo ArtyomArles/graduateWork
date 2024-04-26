@@ -6,7 +6,7 @@ import DeleteButton from '../buttons/deleteButton'
 
 const {Title} = Typography
 
-export default function DictionaryModal({modalForm, setModalForm, model: Model}) {
+export default function DictionaryModal({readOnly = false, modalForm, setModalForm, model: Model}) {
 
   const isEdit = !!modalForm?.id
   const Form = Model?.formComponent
@@ -43,9 +43,11 @@ export default function DictionaryModal({modalForm, setModalForm, model: Model})
       }}
       footer={[
         <Space key='footer'>
-          <CloseButton onClick={onReset}/>
-          {isEdit && <DeleteButton onClick={onDelete}/>}
-          <SaveButton onClick={isEdit ? onEdit : onSave}/>
+          <CloseButton onClick={onReset} />
+          {isEdit && !Model?.readOnly && 
+            <DeleteButton onClick={onDelete} />}
+          {!Model?.readOnly &&
+            <SaveButton onClick={isEdit ? onEdit : onSave} />}
         </Space>
       ]}
     >
@@ -54,7 +56,7 @@ export default function DictionaryModal({modalForm, setModalForm, model: Model})
       </Title>
       <Divider />
       {Model &&
-        <Form 
+        <Form
           modalForm={modalForm} 
           setModalForm={setModalForm}
         />}

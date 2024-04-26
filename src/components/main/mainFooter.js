@@ -1,13 +1,15 @@
 import React from 'react'
-import {Layout} from 'antd'
+import {Layout, Typography} from 'antd'
 
 const {Footer} = Layout
 
 export function MainFooter() {
 
   return (
-    <Footer style={{textAlign: 'center', padding: '0 0 10px'}}>
+    <Typography.Link href='https://vk.com/arlesss' target='_blank'>
+      <Footer className='shadow-text'>
         Budget Planing ©{new Date().getFullYear()} Created by Artyom Lanin
-    </Footer>
+      </Footer>
+    </Typography.Link>
   )
 }

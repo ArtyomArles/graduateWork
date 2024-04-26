@@ -5,6 +5,7 @@ import {Menu, Layout} from 'antd'
 import {TransactionType} from 'src/models/transactionType'
 import {BudgetCategory} from 'src/models/budgetCategory'
 import {Transaction} from 'src/models/transaction'
+import {User} from 'src/models/user'
 
 const {Header} = Layout
 
@@ -42,6 +43,11 @@ export function MainMenu() {
       key: 'monitoring',
       icon: <Link to='monitoring'><BarChartOutlined /></Link>,
       label: 'Мониторинг'
+    },
+    {
+      key: 'users',
+      icon: <Link to='users'>{React.createElement(User.icon)}</Link>,
+      label: User.indexCaption
     }
   ]
 

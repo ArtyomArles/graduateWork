@@ -1,7 +1,7 @@
-import BudgetCategoryIndex from 'src/components/budgetCategories/budgetCategoryIndex'
+import BudgetCategoryIndex from 'src/components/entity/budgetCategories/budgetCategoryIndex'
 import ApplicationModel from './applicationModel'
 import {OrderedListOutlined} from '@ant-design/icons'
-import BudgetCategoryForm from 'src/components/budgetCategories/budgetCategoryForm'
+import BudgetCategoryForm from 'src/components/entity/budgetCategories/budgetCategoryForm'
 
 
 export class BudgetCategory extends ApplicationModel {
