@@ -1,5 +1,6 @@
 import React from 'react'
 import {Form, Row, Col, Input} from 'antd'
+import RolesDropdown from 'src/components/dropdowns/rolesDropdown'
 
 export default function UserForm({modalForm}) {
 
@@ -32,9 +33,10 @@ export default function UserForm({modalForm}) {
         </Col>
         <Col span={8}>
           <Form.Item label='Роли'>
-            <Input
+            <RolesDropdown 
               disabled
-              value={modalForm.roles.map(role => role.name).join(', ')}
+              initialValues={modalForm.roles}
+              value={modalForm.roles.map(role => role.id)}
             />
           </Form.Item>
         </Col>

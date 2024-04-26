@@ -3,7 +3,7 @@ import React, {useEffect, useState, useCallback} from 'react'
 
 const {Option} = Select
 
-export default function MetaDropdown ({model: Model, ...props}) {
+export default function MetaDropdown ({initialValues, model: Model, ...props}) {
 
   const [options, setOptions] = useState([])
   const [itemsCollection, setItemsCollection] = useState([])
@@ -12,12 +12,17 @@ export default function MetaDropdown ({model: Model, ...props}) {
 
   const getOptions = useCallback(async () => {
     setLoading(true)
-    const result = await Model.search()
-    setItemsCollection(result)
-    const _options = result.map(item => ({value: item.id, label: item.title}))
-    setOptions(_options)
+    if (!initialValues) {
+      const result = await Model.search()
+      setItemsCollection(result)
+      const _options = result.map(item => ({value: item.id, label: item.title || item.name}))
+      setOptions(_options)
+    } else {
+      setItemsCollection(initialValues)
+      setOptions(initialValues.map(item => ({value: item.id, label: item.title || item.name})))
+    }
     setLoading(false)
-  }, [Model])
+  }, [Model, initialValues])
 
   useEffect(() => {
     getOptions()
