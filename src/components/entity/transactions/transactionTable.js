@@ -4,6 +4,8 @@ import {getDataWithKeys} from 'src/helpers/getDataWithKeys'
 import {getDateWithFormat} from 'src/helpers/getDateWithFormat'
 import {BudgetCategory} from 'src/models/budgetCategory'
 import {TransactionType} from 'src/models/transactionType'
+import {ICONS, ICON_NOT_FOUND} from 'src/components/common/icons'
+import {Currency} from 'src/models/currency'
 
 export default function TransactionTable({data, setModalForm, setAddedModalForm, setAddedModel, ...props}) {
 
@@ -44,6 +46,25 @@ export default function TransactionTable({data, setModalForm, setAddedModalForm,
       title: 'Сумма транзакции',
       dataIndex: 'sum',
       key: 'sum'
+    },
+    {
+      title: 'Иконка валюты',
+      dataIndex: 'currency',
+      key: 'currencyIcon',
+      align: 'right',
+      render: (currency) => {
+        const returnedIcon = ICONS.find(_icon => _icon.name === currency.icon)
+        return returnedIcon ? <returnedIcon.icon /> : <ICON_NOT_FOUND />
+      }
+    },
+    {
+      title: 'Валюта транзакции',
+      dataIndex: 'currency',
+      key: 'currency',
+      render: (currency, record) => <Typography.Link onClick={() => {
+        setAddedModel({model: Currency})
+        setAddedModalForm(record.currency)
+      }}>{currency.title}</Typography.Link>
     },
     {
       title: 'Дата транзакции',

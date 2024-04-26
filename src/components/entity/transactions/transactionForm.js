@@ -5,6 +5,7 @@ import TransactionTypesDropdown from '../../dropdowns/transactionTypesDropdown'
 import InputNumberStyled from '../../common/inputNumberStyled'
 import DatePickerStyled from '../../common/datePickerStyled'
 import {getConvertedDate} from 'src/helpers/getConvertedDate'
+import CurrenciesDropdown from 'src/components/dropdowns/currenciesDropdown'
 
 export default function TransactionForm({modalForm, setModalForm}) {
 
@@ -66,6 +67,19 @@ export default function TransactionForm({modalForm, setModalForm}) {
               value={modalForm.sum}
               onChange={(value) => {
                 setModalForm(prevForm => ({...prevForm, sum: value}))
+              }}
+            />
+          </Form.Item>
+        </Col>
+        <Col span={8}>
+          <Form.Item
+            label='Валюта транзакции'
+            required
+          >
+            <CurrenciesDropdown
+              value={modalForm.currencyId}
+              onChange={(value) => {
+                setModalForm(prevForm => ({...prevForm, currencyId: value}))
               }}
             />
           </Form.Item>
