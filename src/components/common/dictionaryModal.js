@@ -6,7 +6,7 @@ import DeleteButton from '../buttons/deleteButton'
 
 const {Title} = Typography
 
-export default function DictionaryModal({readOnly = false, modalForm, setModalForm, model: Model}) {
+export default function DictionaryModal({setNeedRefresh, readOnly = false, modalForm, setModalForm, model: Model}) {
 
   const isEdit = !!modalForm?.id
   const Form = Model?.formComponent
@@ -19,18 +19,21 @@ export default function DictionaryModal({readOnly = false, modalForm, setModalFo
     const item = new Model(modalForm)
     await item.edit()
     onReset()
+    setNeedRefresh(true)
   }
 
   const onSave = async () => {
     const item = new Model(modalForm)
     await item.save()
     onReset()
+    setNeedRefresh(true)
   }
 
   const onDelete = async () => {
     const item = new Model(modalForm)
     await item.delete()
     onReset()
+    setNeedRefresh(true)
   }
 
   return (
