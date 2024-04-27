@@ -7,6 +7,7 @@ import {Transaction} from 'src/models/transaction'
 import {User} from 'src/models/user'
 import {Currency} from 'src/models/currency'
 import {Budget} from 'src/models/budget'
+import AccountForm from '../common/accountForm'
 
 const {Content} = Layout
 
@@ -32,7 +33,7 @@ export function MainContent() {
         </Route>
         <Route
           path='/account'
-          element={<div>account</div>}>
+          element={<AccountForm />}>
         </Route>
         <Route
           path='/currencies'

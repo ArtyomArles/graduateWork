@@ -54,7 +54,7 @@ export default function BudgetForm({modalForm, setModalForm}) {
         </Col>
       </Row>
       <TransactionTable 
-        data={modalForm.transactions}
+        data={modalForm.transactions.sort((a, b) => b.id - a.id)}
         setAddedModel={setAddedModel}
         setAddedModalForm={setAddedModalForm}
       />
