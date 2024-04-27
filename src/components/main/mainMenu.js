@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import {UserOutlined, DollarOutlined, BarChartOutlined} from '@ant-design/icons'
+import {UserOutlined, DollarOutlined, BarChartOutlined, SettingOutlined, LogoutOutlined} from '@ant-design/icons'
 import {Menu, Layout} from 'antd'
 import {TransactionType} from 'src/models/transactionType'
 import {BudgetCategory} from 'src/models/budgetCategory'
@@ -8,10 +8,14 @@ import {Transaction} from 'src/models/transaction'
 import {User} from 'src/models/user'
 import {Currency} from 'src/models/currency'
 import {Budget} from 'src/models/budget'
+import {useDispatch} from 'react-redux'
+import {logout} from 'src/store/authSlice'
 
 const {Header} = Layout
 
 export function MainMenu() {
+
+  const dispatch = useDispatch()
 
   const items = [
     {
@@ -60,7 +64,20 @@ export function MainMenu() {
       key: 'users',
       icon: <Link to='users'>{React.createElement(User.icon)}</Link>,
       label: User.indexCaption
-    }
+    },
+    {
+      key: 'settings',
+      icon: <SettingOutlined />,
+      label: 'Настройки',
+      children: [
+        {
+          key: 'exit',
+          icon: <LogoutOutlined />,
+          label: 'Выйти',
+          onClick: () => dispatch(logout())
+        }
+      ]
+    },
   ]
 
   return (

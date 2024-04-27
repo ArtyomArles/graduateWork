@@ -8,6 +8,7 @@ import {User} from 'src/models/user'
 import {Currency} from 'src/models/currency'
 import {Budget} from 'src/models/budget'
 import AccountForm from '../common/accountForm'
+import MonitoringForm from '../common/monitoringForm'
 
 const {Content} = Layout
 
@@ -61,7 +62,7 @@ export function MainContent() {
         </Route>
         <Route
           path='/monitoring'
-          element={<div>monitoring</div>}>
+          element={<MonitoringForm />}>
         </Route>
       </Routes>
     </Content>

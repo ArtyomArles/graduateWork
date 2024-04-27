@@ -1,13 +1,14 @@
 import {DatePicker} from 'antd'
 import React from 'react'
 
-export default function DatePickerStyled (props) {
+export default function DatePickerStyled ({width = '100%', ...props}) {
   
   return (
     <DatePicker
       format={!props.picker ? 'DD.MM.YYYY' : undefined}
-      style={{width: '100%'}}
+      style={{width}}
       placeholder='Выберите дату'
+      onClear
       {...props}
     />
   )

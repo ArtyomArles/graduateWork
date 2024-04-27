@@ -8,6 +8,7 @@ export default function RolesDropdown(props) {
       model={Role}
       placeholder='Выберите роли'
       mode='multiple'
+      labelField='name'
       {...props}
     />
   )

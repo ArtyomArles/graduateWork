@@ -57,7 +57,11 @@ export default class ApplicationModel {
 
   static async find(id) {
     const result = await Api.get(`${this.route}/${id}`)
-    return result
+    if (result) {
+      return result
+    } 
+    message.error('Запрашиваемая запись не найдена', 2)
+    return {}
   }
 
   static get route() {

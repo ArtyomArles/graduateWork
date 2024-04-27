@@ -26,7 +26,7 @@ export default function DictionaryIndex({model: Model, table: Table}) {
 
   return (
     <>
-      <Title level={2}>
+      <Title level={4}>
         {Model.indexCaption}
       </Title>
       {loading ? 

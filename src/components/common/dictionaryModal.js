@@ -51,7 +51,7 @@ export default function DictionaryModal({readOnly = false, modalForm, setModalFo
         </Space>
       ]}
     >
-      <Title level={2}>
+      <Title level={4}>
         {Model?.caption}
       </Title>
       {isEdit ? 'Редактирование записи' : 'Создание записи'}
