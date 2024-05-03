@@ -6,7 +6,7 @@ import {getConvertedDate} from 'src/helpers/getConvertedDate'
 import TransactionTable from '../transactions/transactionTable'
 import DictionaryModal from 'src/components/common/dictionaryModal'
 
-export default function BudgetForm({modalForm, setModalForm}) {
+export default function BudgetForm({modalForm, setModalForm, setNeedRefresh}) {
 
   const [addedModalForm, setAddedModalForm] = useState(null)
   const [addedModel, setAddedModel] = useState(null)
@@ -62,6 +62,7 @@ export default function BudgetForm({modalForm, setModalForm}) {
         model={addedModel?.model}
         modalForm={addedModalForm}
         setModalForm={setAddedModalForm}
+        setNeedRefresh={setNeedRefresh}
       />
     </Form>
   )

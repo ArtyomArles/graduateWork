@@ -30,7 +30,7 @@ export function MainContent() {
       <Routes>
         <Route
           path=''
-          element={<div></div>}>
+          element={<AccountForm />}>
         </Route>
         <Route
           path='/account'

@@ -90,10 +90,11 @@ export default function MonitoringForm() {
     labels: categories?.map(category => category.title) || [],
     datasets: [
       {
-        data: categories?.map(category => category.sum) || empty,
+        data: categories?.map(category => Math.abs(category.sum)) || empty,
         backgroundColor,
         borderColor,
-        borderWidth: 1
+        borderWidth: 1,
+        label: '₽'
       },
     ],
   }
@@ -102,10 +103,11 @@ export default function MonitoringForm() {
     labels: transactionTypes?.map(transactionType => transactionType.title) || [],
     datasets: [
       {
-        data: transactionTypes?.map(transactionType => transactionType.sum) || empty,
+        data: transactionTypes?.map(transactionType => Math.abs(transactionType.sum)) || empty,
         backgroundColor,
         borderColor,
-        borderWidth: 1
+        borderWidth: 1,
+        label: '₽'
       },
     ],
   }
@@ -114,10 +116,11 @@ export default function MonitoringForm() {
     labels: currencies?.map(currency => currency.title) || [],
     datasets: [
       {
-        data: currencies?.map(currency => currency.sum) || empty,
+        data: currencies?.map(currency => Math.abs(currency.sum)) || empty,
         backgroundColor,
         borderColor,
-        borderWidth: 1
+        borderWidth: 1,
+        label: '₽'
       },
     ],
   }
