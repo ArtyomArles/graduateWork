@@ -11,8 +11,8 @@ export class User extends ApplicationModel {
   indexCaption = 'Пользователи'
   indexComponent = UserIndex
   formComponent = UserForm
-  canCreate = false
-  readOnly = true
+  canCreate = true
+  readOnly = false
   initialState = {
     id: null,
     login: '',
@@ -21,6 +21,6 @@ export class User extends ApplicationModel {
     email: '',
     password: null,
     roles: [],
-    status: ''
+    status: 'ACTIVE'
   }
 }

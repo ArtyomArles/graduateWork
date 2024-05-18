@@ -33,6 +33,7 @@ export default function BudgetForm({modalForm, setModalForm, setNeedRefresh}) {
           <Form.Item 
             label='Сумма'
             required
+            help='Предложенный алгоритмом бюджет - 1.100.100'
           >
             <InputNumberStyled
               value={modalForm.sum}

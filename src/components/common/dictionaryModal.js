@@ -64,6 +64,7 @@ export default function DictionaryModal({setNeedRefresh, modalForm, setModalForm
           modalForm={modalForm} 
           setModalForm={setModalForm}
           setNeedRefresh={setNeedRefresh}
+          isEdit={isEdit}
         />}
     </Modal>
   )
