@@ -1,5 +1,6 @@
 import React from 'react'
 import {Form, Row, Col, Input} from 'antd'
+import InputNumberStyled from 'src/components/common/inputNumberStyled'
 
 export default function BudgetCategoryForm({modalForm, setModalForm}) {
 
@@ -16,6 +17,20 @@ export default function BudgetCategoryForm({modalForm, setModalForm}) {
               placeholder='Введите название'
               onChange={(e) => {
                 setModalForm(prevForm => ({...prevForm, title: e.target.value}))
+              }}
+            />
+          </Form.Item>
+        </Col>
+        <Col span={8}>
+          <Form.Item 
+            label='Приоритет'
+            required
+          >
+            <InputNumberStyled
+              value={modalForm.priority}
+              placeholder='Введите приоритет'
+              onChange={(value) => {
+                setModalForm(prevForm => ({...prevForm, priority: value}))
               }}
             />
           </Form.Item>

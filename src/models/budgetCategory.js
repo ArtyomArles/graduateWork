@@ -14,6 +14,7 @@ export class BudgetCategory extends ApplicationModel {
   initialState = {
     id: null, 
     title: '',
-    description: ''
+    description: '',
+    priority: null
   }
 }
