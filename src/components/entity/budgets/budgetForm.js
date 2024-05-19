@@ -52,7 +52,7 @@ export default function BudgetForm({modalForm, setModalForm, setNeedRefresh, dat
           <Form.Item 
             label='Сумма'
             required
-            help={!isEdit ? `Предложенный алгоритмом бюджет - ${getFormattedNumberValue(calculatedBudget)}` : null}
+            help={!isEdit && modalForm.year ? `Предложенный алгоритмом бюджет - ${getFormattedNumberValue(calculatedBudget)}` : null}
           >
             <InputNumberStyled
               value={modalForm.sum}
