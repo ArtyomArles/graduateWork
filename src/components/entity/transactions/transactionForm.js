@@ -62,6 +62,7 @@ export default function TransactionForm({modalForm, setModalForm}) {
           <Form.Item
             label='Сумма транзакции'
             required
+            help='Для оптимизации бюджета, снизьте расходы по категории "Автомобили"'
           >
             <InputNumberStyled
               value={modalForm.sum}

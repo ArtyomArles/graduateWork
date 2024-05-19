@@ -55,6 +55,7 @@ export default function DictionaryIndex({model: Model, table: Table}) {
         modalForm={modalForm}
         setModalForm={setModalForm}
         setNeedRefresh={setNeedRefresh}
+        data={data}
       />
       <DictionaryModal
         model={addedModel?.model}
